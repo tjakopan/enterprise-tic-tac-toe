@@ -3,13 +3,13 @@ package tictactoe.core;
 import static tictactoe.core.HorizontalPosition.*;
 import static tictactoe.core.VerticalPosition.*;
 
-import tictactoe.core.CellState.Empty;
-import tictactoe.core.CellState.Played;
 import java.util.*;
 import java.util.function.BiPredicate;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import org.jspecify.annotations.Nullable;
+import tictactoe.core.CellState.Empty;
+import tictactoe.core.CellState.Played;
 
 public final class TicTacToe implements TicTacToeApi {
   private List<List<CellPosition>> linesToCheck() {
@@ -46,7 +46,7 @@ public final class TicTacToe implements TicTacToeApi {
     return new DisplayInfo(gameState.cells());
   }
 
-  public Cell getCell(final GameState gameState, final CellPosition posToFind) {
+  private Cell getCell(final GameState gameState, final CellPosition posToFind) {
     return gameState.cells().stream()
         .filter(cell -> cell.pos().equals(posToFind))
         .findFirst()
